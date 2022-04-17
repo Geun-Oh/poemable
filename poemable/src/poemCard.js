@@ -2,12 +2,11 @@ import React from 'react';
 
 function PoemCard({ poem }) {
     return (
-        <div>
-            <h1>{poem.name}</h1>
-            <h3>-{poem.author}-</h3>
-            <p>{poem.detail}</p>
-            <hr />
-    </div>
+            <wrapper>
+                <p>{poem.name}</p>
+                <p>-{poem.author}-</p>
+                <span>{poem.detail}</span>
+            </wrapper>
     )
 }
 

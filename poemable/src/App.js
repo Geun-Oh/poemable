@@ -6,9 +6,8 @@ import LandingPage from './landingPage';
 function App() {
   return(
     <>
-      <WritingPage />
-      <hr />
       <LandingPage />
+      <WritingPage />
     </>
   )
 }
