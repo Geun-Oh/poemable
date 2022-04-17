@@ -1,12 +1,14 @@
 import React from 'react';
 import { withAuthenticator } from '@aws-amplify/ui-react';
-import WritePoem from './writepoem';
+import WritingPage from './writingPage';
+import LandingPage from './landingPage';
 
 function App() {
   return(
     <>
-      <div>hello</div>
-      <WritePoem />
+      <WritingPage />
+      <hr />
+      <LandingPage />
     </>
   )
 }

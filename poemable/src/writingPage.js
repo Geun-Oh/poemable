@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { createPoem } from './graphql/mutations';
-import { listPoems } from './graphql/queries';
 import { API } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
+import styles from './writingPage.module.scss';
 
-function WritePoem() {
+function WritingPage() {
     const [poem, setPoem] = useState({
         title: "",
         detail: ""
     })
     const [userInfo, setUserInfo] = useState({})
-    const [poemList, setPoemList] = useState([])
     const checkUser = async () => {
         const user = await Auth.currentUserInfo()
         setUserInfo(user)
@@ -25,30 +24,13 @@ function WritePoem() {
             console.log("error: ", err)
         }
     }
-    
-    const onChange = async () => {
-        try {
-            const poemData = await API.graphql({
-                query: listPoems
-            })
-            const poems = poemData.data.listPoems.items
-            setPoemList(poemData.data.listPoems.items)
-            console.log(poems)
-        } catch (err) {
-            console.log("error: ", err)
-        }
-    }
 
     useEffect(() => {
         checkUser()
     }, [])
 
-    useEffect(() => {
-        onChange()
-    }, [poem])
-
     return (
-        <>
+        <div className={`${styles.div}`}>
             <input
                 type="text"
                 name="title"
@@ -66,18 +48,8 @@ function WritePoem() {
             <button
                 onClick={onClick}
             >Done!</button>
-            {/* {
-                poemList && poemList.product.map((poem, index) => (
-                    <div>
-                        <h1>{poem.name}</h1>
-                        <h3>-{poem.author}-</h3>
-                        <hr />
-                        <p>{poem.detail}</p>
-                    </div>
-                ))
-            } */}
-        </>
+        </div>
     )
 }
 
-export default WritePoem;
+export default WritingPage;

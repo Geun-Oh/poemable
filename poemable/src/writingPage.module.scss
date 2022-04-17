@@ -1,0 +1,24 @@
+/*스타일 작성해야 할 컴포넌트: poemCard, Modal*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+$defaultColor: #6666CC;
+$fontFamily: 'Nanum Myeongjo', serif;
+
+.div {
+    font-family: $fontFamily;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        border: none;
+        background-color: none;
+    }
+    button {
+        width: 300px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: $defaultColor;
+    }
+}
