@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, } from 'react';
 import { listPoems } from './graphql/queries';
 import { onCreatePoem } from './graphql/subscriptions';
 import { API } from 'aws-amplify';
@@ -10,7 +10,6 @@ import leftArrow from './leftArrow.svg';
 function LandingPage() {
     const [poemList, setPoemList] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
-    const slide = useRef()
     const fetchPoem = useCallback( async () => {
         try {
             const poemData = await API.graphql({
@@ -35,13 +34,13 @@ function LandingPage() {
         return () => subscription.unsubscribe()
     })
 
-    const onClick = () => {
-        slide.current.style = "transform: translateX()"
-    }
-
     return (
         <>
-        <div className={`${styles.landingPage}`} style={{transform: `translateX(${100 / poemList.length}%)`}} ref={slide}>
+        <div className={`${styles.nav}`}>
+            <div>Poem.IT</div>
+            <p>Admin</p>
+        </div>
+        <div className={`${styles.landingPage}`} style={{ width: `${poemList.length * 440}px`, transform: `translateX(${currentIndex * 440}px)` }}>
             {
                 poemList === undefined ? <p>nothing...</p> : 
                         poemList.map((poem, index) => (
@@ -52,10 +51,10 @@ function LandingPage() {
             }
         </div>
         <div className={`${styles.rightScreen}`}>
-            <img src={rightArrow} alt="rightArrow" />
+            <img src={rightArrow} alt="rightArrow" onClick={() => setCurrentIndex((prev => prev - 1))} />
         </div>
         <div className={`${styles.leftScreen}`}>
-            <img src={leftArrow} alt="leftArrow" />
+            <img src={leftArrow} alt="leftArrow" onClick={() => setCurrentIndex((prev => prev + 1))} />
         </div>
         </>
     )

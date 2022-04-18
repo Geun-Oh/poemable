@@ -4,6 +4,26 @@
 $defaultColor: #6666CC;
 $fontFamily: 'Nanum Myeongjo', serif;
 
+.nav {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 150px;
+    position: absolute;
+    font-family: $fontFamily;
+    div {
+        width: 100vw;
+        font-size: 90px;
+        text-align: center;
+    }
+    p {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+    }
+}
+
 .writingPage {
     font-size: 24px;
     font-family: $fontFamily;
@@ -61,7 +81,7 @@ $fontFamily: 'Nanum Myeongjo', serif;
 .landingPage {
     font-size: 24px;
     font-family: $fontFamily;
-    width: 100vw;
+    margin-left: calc(50vw - 220px);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -97,12 +117,12 @@ $fontFamily: 'Nanum Myeongjo', serif;
     position: absolute;
     top: calc(50vh - 320px);
     right: 0;
-    width: calc(50vw - 200px);
+    width: calc(50vw - 220px);
     height: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: white;
+    background: linear-gradient(270.27deg, #FFFFFF 0.23%, #FFFFFF 47.4%, rgba(255, 255, 255, 0.88) 74.36%, rgba(255, 255, 255, 0) 99.76%);
 }
 
 .leftScreen {
@@ -110,10 +130,10 @@ $fontFamily: 'Nanum Myeongjo', serif;
     position: absolute;
     top: calc(50vh - 320px);
     left: 0;
-    width: calc(50vw - 200px);
+    width: calc(50vw - 220px);
     height: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: white;
+    background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 47.4%, rgba(255, 255, 255, 0.88) 74.48%, rgba(255, 255, 255, 0) 100%);
 }
