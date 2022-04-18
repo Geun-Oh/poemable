@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { createPoem } from './graphql/mutations';
 import { API } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
 import styles from './poemIt.module.scss';
+import Button from './button';
 
 function WritingPage() {
     const [poem, setPoem] = useState({
@@ -30,6 +32,11 @@ function WritingPage() {
     }, [])
 
     return (
+        <>
+        <div className={`${styles.nav}`}>
+            <div>Poem.IT</div>
+            <p>Admin</p>
+        </div> 
         <div className={`${styles.writingPage}`}>
             <wrapper>
                 <input
@@ -49,10 +56,11 @@ function WritingPage() {
                     />
                 </div>
             </wrapper>
-            <button
-                onClick={onClick}
-            >POEM IT NOW!</button>
+            <Link to="/">
+                <Button onClick={onClick} style={{ marginTop: "30px" }}>DONE!</Button>
+            </Link>
         </div>
+        </>
     )
 }
 

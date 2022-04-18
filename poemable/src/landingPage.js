@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, } from 'react';
+import { Link } from 'react-router-dom';
 import { listPoems } from './graphql/queries';
 import { onCreatePoem } from './graphql/subscriptions';
 import { API } from 'aws-amplify';
@@ -6,6 +7,7 @@ import PoemCard from './poemCard';
 import styles from './poemIt.module.scss';
 import rightArrow from './rightArrow.svg';
 import leftArrow from './leftArrow.svg';
+import Button from './button';
 
 function LandingPage() {
     const [poemList, setPoemList] = useState([])
@@ -29,6 +31,8 @@ function LandingPage() {
             next: poemData => {
                 const poems = poemData.value.data.onCreatePoem
                 setPoemList(poems)
+                setCurrentIndex(parseInt(poems.length / 2))
+                console.log(currentIndex)
             }
         })
         return () => subscription.unsubscribe()
@@ -56,6 +60,11 @@ function LandingPage() {
         <div className={`${styles.leftScreen}`}>
             <img src={leftArrow} alt="leftArrow" onClick={() => setCurrentIndex((prev => prev + 1))} />
         </div>
+        <Link to="/writedown">
+            <Button 
+                style={{ position: "absolute", bottom: "40px", left: "calc(50vw - 120px)" }}
+            >POEM IT NOW!</Button>
+        </Link>
         </>
     )
 }
