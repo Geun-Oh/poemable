@@ -1,30 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { createPoem } from './graphql/mutations';
 import { API } from 'aws-amplify';
 import { Auth } from 'aws-amplify';
 import styles from './poemIt.module.scss';
 import Button from './button';
+import { currentUserContext } from './context';
 
 function WritingPage() {
+    const { currentUser, setCurrentUserHandler } = useContext(currentUserContext)
     const [poem, setPoem] = useState({
         title: "",
         detail: ""
     })
-    const [userInfo, setUserInfo] = useState({})
-    const checkUser = async () => {
-        const user = await Auth.currentUserInfo()
-        setUserInfo(user)
-    }
+
     const onClick = async () => {
         try {
             await API.graphql({
                 query: createPoem,
-                variables: { input: { name: poem.title, author: userInfo.username, detail: poem.detail } }
+                variables: { input: { name: poem.title, author: currentUser, detail: poem.detail } }
             })
         } catch (err) {
             console.log("error: ", err)
         }
+    }
+
+    const checkUser = async () => {
+        const user = await Auth.currentUserInfo()
+        setCurrentUserHandler(user.username)
     }
 
     useEffect(() => {
@@ -35,7 +38,7 @@ function WritingPage() {
         <>
         <div className={`${styles.nav}`}>
             <div>Poem.IT</div>
-            <p>Admin</p>
+            <p>{currentUser}</p>
         </div> 
         <div className={`${styles.writingPage}`}>
             <wrapper>
