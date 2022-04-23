@@ -21,12 +21,13 @@ function ProfilePage () {
         }
     }, [])
 
-    const deletePoem = useCallback( async ({ id }) => {
+    const onDelete = useCallback( async (id) => {
+        console.log(typeof(id))
         try {
             const poemData = await API.graphql({
-                query: deletePoem, input: { id }
+                query: deletePoem, input: {id: id}
             })
-            console.log(poemData.data.listPoems.items)
+            console.log(poemData)
         } catch (err) {
             console.log("error: ", err)
         }
@@ -71,7 +72,7 @@ function ProfilePage () {
                                 <p>{poem.name}</p>
                                 <p>-{poem.author}-</p>
                                 <p>{poem.detail}</p>
-                                <button onClick={deletePoem(poem.id)}>Delete</button>
+                                <button onClick={() => onDelete(poem.id)}>Delete</button>
                                 <hr />
                             </div>
                         ))
