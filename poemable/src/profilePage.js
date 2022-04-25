@@ -1,6 +1,6 @@
 import React, { useState, useContext, useCallback, useEffect } from "react";
 import { currentUserContext } from "./context";
-import { API } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { listPoems } from './graphql/queries';
 import { deletePoem } from "./graphql/mutations";
 import { onUpdatePoem, onDeletePoem } from './graphql/subscriptions';
@@ -22,11 +22,8 @@ function ProfilePage () {
     }, [])
 
     const onDelete = useCallback( async (id) => {
-        console.log(typeof(id))
         try {
-            const poemData = await API.graphql({
-                query: deletePoem, input: {id: id}
-            })
+            const poemData = await API.graphql(graphqlOperation(deletePoem, { input: { id: id } }))
             console.log(poemData)
         } catch (err) {
             console.log("error: ", err)
@@ -41,10 +38,7 @@ function ProfilePage () {
         const subscription = API.graphql({
             query: onUpdatePoem
         }).subscribe({
-            next: poemData => {
-                const poems = poemData.value.data.onUpdatePoem
-                setPoemList(poems)
-            }
+            next: () => fetchPoem()
         })
         return () => subscription.unsubscribe()
     })
@@ -53,10 +47,7 @@ function ProfilePage () {
         const subscription = API.graphql({
             query: onDeletePoem
         }).subscribe({
-            next: poemData => {
-                const poems = poemData.value.data.onDeletePoem
-                setPoemList(poems)
-            }
+            next: () => fetchPoem()
         })
         return () => subscription.unsubscribe()
     })
