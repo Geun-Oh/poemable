@@ -14,7 +14,10 @@ function WritingPage() {
         detail: ""
     })
 
-    const onClick = async () => {
+    const onClick = async () => { // 왜 다른 useCallback을 쓴 함수들과 다르게 여기서는 props를 전달하지 않아도 되는건가?
+        if (poem.title === "" || poem.detail === "") {
+            return;
+        }
         try {
             await API.graphql({
                 query: createPoem,
@@ -59,8 +62,12 @@ function WritingPage() {
                     />
                 </div>
             </wrapper>
-            <Link to="/">
-                <Button onClick={onClick} style={{ marginTop: "30px" }}>DONE!</Button>
+            <Link to="/" onClick={onClick}>
+                <Button style={{ marginTop: "30px" }}>
+                    {
+                        poem.title === "" || poem.detail === "" ? "CLOSE" : "DONE!"
+                    }
+                </Button>
             </Link>
         </div>
         </>

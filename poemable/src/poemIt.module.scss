@@ -102,7 +102,7 @@ $fontFamily: 'Nanum Myeongjo', serif;
     height: 100vh;
     top: 0;
     left: -180px;
-    background-color: #6666CC50;
+    background-color: #6666CC;
     position: fixed;
     z-index: 999;
     display: flex;
@@ -115,12 +115,12 @@ $fontFamily: 'Nanum Myeongjo', serif;
     }
     hr {
         width: 50px;
-        color: #939393;
+        color: #ffffff;
     }
     p {
         font-size: 1rem;
         font-family: $fontFamily;
-        color: #5F5F5F;
+        color: #ffffff;
     }
 }
 
@@ -140,6 +140,7 @@ $fontFamily: 'Nanum Myeongjo', serif;
     justify-content: center;
     align-items: center;
     z-index: -999;
+    opacity: 0;
     wrapper {
         display: flex;
         flex-direction: column;

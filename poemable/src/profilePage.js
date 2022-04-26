@@ -34,7 +34,7 @@ function ProfilePage () {
 
     const onUpdate = useCallback( async ( id ) => {
         setUpdateId(id)
-        updateModalRef.current.style = "z-index: 999;"
+        updateModalRef.current.style = "z-index: 999; opacity: 1;"
     }, [])
 
     useEffect(() => {
