@@ -20,7 +20,7 @@ function LandingPage() {
             const poemData = await API.graphql({
                 query: listPoems
             })
-            setPoemList(poemData.data.listPoems.items)
+            setPoemList(() => poemData.data.listPoems.items)
         } catch (err) {
             console.log("error: ", err)
         }
@@ -33,22 +33,29 @@ function LandingPage() {
 
     useEffect(() => {
         checkUser()
-    }, [])
-
-    useEffect(() => {
         fetchPoem()
+
         const subscription = API.graphql({
             query: onCreatePoem
         }).subscribe({
             next: poemData => {
                 const poems = poemData.value.data.onCreatePoem
                 setPoemList(poems)
-                setCurrentIndex(parseInt(poems.length / 2))
-                console.log(currentIndex)
+                setCurrentIndex(() => parseInt(poems.length / 2 * -1))
             }
         })
         return () => subscription.unsubscribe()
-    })
+    }, [])
+
+    if (currentIndex > 0) {
+        setCurrentIndex(prev => prev - 1)
+        console.log(currentIndex)
+    }
+    
+    if (currentIndex < 1 - poemList.length) {
+        setCurrentIndex(prev => prev + 1)
+        console.log(currentIndex)
+    }
 
     return (
         <>
