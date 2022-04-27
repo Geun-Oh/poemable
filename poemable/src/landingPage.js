@@ -47,15 +47,15 @@ function LandingPage() {
         return () => subscription.unsubscribe()
     }, [])
 
-    if (currentIndex > 0) {
-        setCurrentIndex(prev => prev - 1)
-        console.log(currentIndex)
-    }
+    // if (currentIndex > 0) {
+    //     setCurrentIndex(prev => prev - 1)
+    //     console.log(currentIndex)
+    // }
     
-    if (currentIndex < 1 - poemList.length) {
-        setCurrentIndex(prev => prev + 1)
-        console.log(currentIndex)
-    }
+    // if (currentIndex < 1 - poemList.length) {
+    //     setCurrentIndex(prev => prev + 1)
+    //     console.log(currentIndex)
+    // }
 
     return (
         <>
