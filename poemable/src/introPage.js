@@ -8,11 +8,11 @@ function IntroPage() {
         <div className={`${styles.introPage}`}>
             <section className={`${styles.section1}`}>
                 <div>
-                    <p style={{ textAlign: "left", fontSize: "100px" }}>"</p>
+                    <p style={{ textAlign: "left" }}>"</p>
                     <p style={{ textAlign: "center" }}>누구나</p>
-                    <p style={{ textAlign: "right", fontSize: "100px" }}>"</p>
+                    <p style={{ textAlign: "right" }}>"</p>
                 </div>
-                <p style={{ margin: "0", marginLeft: "50vw", fontSize: "80px" }}>쓸 수 있습니다.</p>
+                <p>쓸 수 있습니다.</p>
             </section>
             <section className={`${styles.section2}`}>
                 <div>
@@ -33,15 +33,17 @@ function IntroPage() {
                 </div>
             </section>
             <section className={`${styles.section3}`}>
-                <span>우리는 모두가 시에 대한 거부감을 없애고<br />자신만의 이야기를 담은 시들을 곁에 두기 원했고<br />그렇게 Poemable이 시작되었습니다.</span>
+                <span style={{ textAilgn: "center" }}>우리는 모두가 시에 대한 거부감을 없애고</span>
+                <span style={{ textAilgn: "center" }}>자신만의 이야기를 담은 시들을 곁에 두기 원했고</span>
+                <span style={{ textAilgn: "center" }}>그렇게 Poemable이 시작되었습니다.</span>
             </section>
             <section className={`${styles.section4}`}>
-                <p style={{ fontSize: "50px" }}>POEMABLE | 시를 쓸 수 있는</p>
+                <p>POEMABLE | 시를 쓸 수 있는</p>
                 <br />
                 <br />
                 <br />
                 <br />
-                <p>누구나 마음만 먹으면 쉽게 접할 수 있고 쓸 수 있다는 의미를 담고 있습니다.</p>
+                <p style={{ fontSize: "20px" }}>누구나 마음만 먹으면 쉽게 접할 수 있고 쓸 수 있다는 의미를 담고 있습니다.</p>
             </section>
             <section className={`${styles.section5}`}>
                 <div className={`${styles.div}`} style={{ top: "0" }}>

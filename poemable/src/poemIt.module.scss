@@ -24,6 +24,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         top: 20px;
         right: 40px;
     }
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .introPage {
@@ -44,6 +47,12 @@ $indexPageFontFamily: 'Gowun Batang', serif;
             p {
                 margin: 0;
             }
+        }
+        p {
+            margin: 0;
+            margin-left: 50vw;
+            margin-bottom: 25vh;
+            font-size: 80px;
         }
     }
     .section2 {
@@ -73,7 +82,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         align-items: center;
         z-index: 2;
         position: sticky;
-        top: 20vh;
+        top: 0;
         p {
             font-size: 20px;
         }
@@ -91,7 +100,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         position: sticky;
         top: 0;
         p {
-            font-size: 30px;
+            font-size: 50px;
             color: white;
         }
     }
@@ -137,6 +146,59 @@ $indexPageFontFamily: 'Gowun Batang', serif;
             }
         }
     }
+    @media screen and (max-width: 768px) {
+        .section1 {
+            div {
+                width: 100vw;
+                height: auto;
+                margin-left: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p {
+                    width: 70%;
+                    font-size: 50px;
+                }
+            }
+            p {
+                width: 100vw;
+                text-align: center;
+                margin-left: 0;
+                margin-top: 20vh;
+                font-size: 30px;
+            }
+        }
+        .section2 {
+            p {
+                margin-left: 20px;
+                margin-right: 20px;
+                font-size: 20px;
+            }
+        }
+        .section4 {
+            p {
+                font-size: 25px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+        .section5 {
+            p {
+                font-size: 20px;
+            }
+        }
+        .section6 {
+            div {
+                p {
+                    font-size: 20px;
+                }
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
 }
 
 .writingPage {
@@ -144,7 +206,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
     font-size: 24px;
     font-family: $fontFamily;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,6 +235,23 @@ $indexPageFontFamily: 'Gowun Batang', serif;
                 width: 400px;
                 height: 450px;
                 margin-top: 20px;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 0;
+        wrapper {
+            width: 300px;
+            height: 450px;
+            input {
+                width: 225px;
+                margin-top: 22.5px;
+            }
+            div {
+                textarea {
+                    width: 300px;
+                    height: calc(450px * 0.75);
+                }
             }
         }
     }
@@ -208,6 +287,18 @@ $indexPageFontFamily: 'Gowun Batang', serif;
             width: 400px;
             height: 450px;
             margin-top: 20px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+        margin-left: calc(50vw - 170px);
+        wrapper {
+            width: 300px;
+            height: 450px;
+            span {
+                width: 270px;
+                font-size: 12px;
+            }
         }
     }
 }
@@ -246,6 +337,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
     margin-top: 150px;
     margin-left: 20vw;
     font-family: $fontFamily;
+    p {
+        font-size: 30px;
+    }
     .profilePoemList {
         width: 60vw;
         position: relative;
@@ -275,6 +369,11 @@ $indexPageFontFamily: 'Gowun Batang', serif;
                     opacity: 1;
                 }
             }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        p {
+            font-size: 20px;
         }
     }
 }
@@ -336,6 +435,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
             opacity: 1;
         }
     }
+    @media screen and (max-width: 768px) {
+        height: 100vh;
+    }
 }
 
 .leftScreen {
@@ -356,6 +458,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         &:hover {
             opacity: 1;
         }
+    }
+    @media screen and (max-width: 768px) {
+        height: 100vh;
     }
 }
 

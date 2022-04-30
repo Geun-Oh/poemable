@@ -10,6 +10,7 @@ import rightArrow from './rightArrow.svg';
 import leftArrow from './leftArrow.svg';
 import Button from './button';
 import { currentUserContext } from './context';
+import styled from 'styled-components';
 
 function LandingPage() {
     const [poemList, setPoemList] = useState([])
@@ -63,7 +64,7 @@ function LandingPage() {
             <div>Poem.IT</div>
             <Link to="/profile" style={{ textDecoration: "none" }}><p>{currentUser.username}</p></Link>
         </div>
-        <div className={`${styles.landingPage}`} style={{ width: `${poemList.length * 440}px`, transform: `translateX(${currentIndex * 440}px)` }}>
+        <StyledCard className={`${styles.landingPage}`} poemList={poemList} currentIndex={currentIndex}>
             {
                 poemList === undefined ? <p>nothing...</p> : 
                         poemList.map((poem, index) => (
@@ -72,7 +73,7 @@ function LandingPage() {
                             </>
                         ))
             }
-        </div>
+        </StyledCard>
         <div className={`${styles.rightScreen}`}>
             <img src={rightArrow} alt="rightArrow" onClick={() => setCurrentIndex((prev => prev - 1))} />
         </div>
@@ -81,7 +82,7 @@ function LandingPage() {
         </div>
         <Link to="/writedown">
             <Button 
-                style={{ position: "absolute", bottom: "40px", left: "calc(50vw - 120px)" }}
+                style={{ position: "absolute", bottom: "10px", left: "calc(50vw - 120px)" }}
             >POEM IT NOW!</Button>
         </Link>
         </div>
@@ -89,3 +90,12 @@ function LandingPage() {
 }
 
 export default LandingPage;
+
+const StyledCard = styled.div`
+width: ${({poemList}) => poemList.length * 440}px;
+transform: translateX(${({currentIndex}) => currentIndex * 440}px);
+@media screen and (max-width: 768px) {
+    width: ${({poemList}) => poemList.length * 340}px;
+    transform: translateX(${({currentIndex}) => currentIndex * 340}px);
+}
+`

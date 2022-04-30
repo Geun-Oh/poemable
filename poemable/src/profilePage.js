@@ -62,7 +62,7 @@ function ProfilePage () {
     return(
         <div className={`${styles.profilePage}`}>
             <ForwardUpdateModal id={updateId} ref={updateModalRef} />
-            <p style={{ fontSize: "30px" }}>오형근 | kandy1002@naver.com</p>
+            <p>오형근 | kandy1002@naver.com</p>
             {/* <p>{currentUser.username} | {currentUser.attributes.email}</p> */}
             <hr />
             {
