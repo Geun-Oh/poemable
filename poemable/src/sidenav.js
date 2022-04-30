@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import styles from './poemIt.module.scss';
 
 function SideNav () {
@@ -9,10 +9,10 @@ function SideNav () {
         <div className={`${styles.sideNav}`}>
             <hr />
             {
-                location.pathname !== "/profile" ? <Link to="/profile"><p>Profile</p></Link> : <Link to="/"><p>Main</p></Link>
+                location.pathname !== "/profile" ? <Link to="/profile" style={{ textDecoration: "none" }}><p>Profile</p></Link> : <Link to="/landing" style={{ textDecoration: "none" }}><p>Main</p></Link>
             }
             <hr />
-            <p>How?</p>
+            <Link to="/" style={{ textDecoration: "none" }}><p>Intro</p></Link>
             <hr />
             <p>Project Config</p>
             <hr />

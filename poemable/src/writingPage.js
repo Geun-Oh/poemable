@@ -41,7 +41,7 @@ function WritingPage() {
         <>
         <div className={`${styles.nav}`}>
             <div>Poem.IT</div>
-            <p>{currentUser}</p>
+            <p>{currentUser.username}</p>
         </div> 
         <div className={`${styles.writingPage}`}>
             <wrapper>
@@ -62,7 +62,7 @@ function WritingPage() {
                     />
                 </div>
             </wrapper>
-            <Link to="/" onClick={onClick}>
+            <Link to="/landing" onClick={onClick}>
                 <Button style={{ marginTop: "30px" }}>
                     {
                         poem.title === "" || poem.detail === "" ? "CLOSE" : "DONE!"

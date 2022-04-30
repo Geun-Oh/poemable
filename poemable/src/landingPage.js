@@ -28,7 +28,7 @@ function LandingPage() {
 
     const checkUser = async () => {
         const user = await Auth.currentUserInfo()
-        setCurrentUserHandler(user.username)
+        setCurrentUserHandler(user)
     }
 
     useEffect(() => {
@@ -58,10 +58,10 @@ function LandingPage() {
     // }
 
     return (
-        <>
+        <div style={{ overflow: "hidden" }}>
         <div className={`${styles.nav}`}>
             <div>Poem.IT</div>
-            <p>{currentUser}</p>
+            <Link to="/profile" style={{ textDecoration: "none" }}><p>{currentUser.username}</p></Link>
         </div>
         <div className={`${styles.landingPage}`} style={{ width: `${poemList.length * 440}px`, transform: `translateX(${currentIndex * 440}px)` }}>
             {
@@ -84,7 +84,7 @@ function LandingPage() {
                 style={{ position: "absolute", bottom: "40px", left: "calc(50vw - 120px)" }}
             >POEM IT NOW!</Button>
         </Link>
-        </>
+        </div>
     )
 }
 

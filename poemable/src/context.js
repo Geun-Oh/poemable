@@ -6,7 +6,7 @@ const currentUserContext = createContext({
 });
 
 const UpdateCurrentUser = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState("")
+    const [currentUser, setCurrentUser] = useState({})
 
     const setCurrentUserHandler = (user) => setCurrentUser(user)
 

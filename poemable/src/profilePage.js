@@ -62,17 +62,19 @@ function ProfilePage () {
     return(
         <div className={`${styles.profilePage}`}>
             <ForwardUpdateModal id={updateId} ref={updateModalRef} />
-            <p>{currentUser} Profile</p>
+            <p style={{ fontSize: "30px" }}>오형근 | kandy1002@naver.com</p>
+            {/* <p>{currentUser.username} | {currentUser.attributes.email}</p> */}
             <hr />
             {
                 poemList === undefined ? <p>nothing...</p> : 
                         poemList.map((poem, index) => (
-                            <div key={index}>
-                                <p>{poem.name}</p>
-                                <p>-{poem.author}-</p>
-                                <p>{poem.detail}</p>
-                                <button onClick={() => onDelete(poem.id)}>Delete</button>
-                                <button onClick={() => onUpdate(poem.id)}>Update</button>
+                            <div key={index} className={`${styles.profilePoemList}`}>
+                                <p style={{ fontSize: "20px" }}>{poem.name}</p>
+                                <p style={{ fontSize: "16px" }}>{poem.detail}</p>
+                                <wrapper>
+                                    <button onClick={() => onUpdate(poem.id)} style={{ backgroundColor: "#6666cc" }}>수정</button>
+                                    <button onClick={() => onDelete(poem.id)} style={{ backgroundColor: "#FF6565" }}>삭제</button>
+                                </wrapper>
                                 <hr />
                             </div>
                         ))
