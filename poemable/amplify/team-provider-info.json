@@ -13,15 +13,15 @@
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-poemable-dev-25954-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
-      "auth": {
-        "poemable6fe86c51": {}
-      },
       "function": {
         "poemable6fe86c51PostConfirmation": {
           "GROUP": "Admin",
           "deploymentBucketName": "amplify-poemable-dev-25954-deployment",
           "s3Key": "amplify-builds/poemable6fe86c51PostConfirmation-456a4647476c6a4f6773-build.zip"
         }
+      },
+      "auth": {
+        "poemabledbbee113": {}
       }
     }
   }

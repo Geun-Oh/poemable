@@ -9,7 +9,9 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-04-30T13:59:42.321Z",
+              "description": "da2-hbykytamqjgnnfoprfeyb7hcfu"
             }
           },
           "additionalAuthenticationProviders": []
@@ -25,20 +27,10 @@
     }
   },
   "auth": {
-    "poemable6fe86c51": {
+    "poemabledbbee113": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "poemable6fe86c51PostConfirmation",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],

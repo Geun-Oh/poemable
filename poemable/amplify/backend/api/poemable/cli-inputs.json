@@ -6,7 +6,11 @@
     "gqlSchemaPath": "/workspace/poemable/poemable/amplify/backend/api/poemable/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-04-30T13:59:42.321Z",
+      "keyDescription": "da2-hbykytamqjgnnfoprfeyb7hcfu"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }

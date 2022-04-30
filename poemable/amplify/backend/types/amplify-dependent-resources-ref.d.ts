@@ -15,7 +15,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "poemable6fe86c51": {
+        "poemabledbbee113": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
