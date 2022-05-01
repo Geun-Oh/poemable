@@ -2,5 +2,11 @@
   "AppSyncApiName": "poemable",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-04-30T13:52:11.388Z"
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authpoemable6fe86c51",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2022-04-30T23:33:21.845Z"
 }

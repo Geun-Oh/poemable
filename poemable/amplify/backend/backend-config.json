@@ -3,18 +3,33 @@
     "poemable": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "poemable6fe86c51",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
       "output": {
         "authConfig": {
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-04-30T13:59:42.321Z",
-              "description": "da2-hbykytamqjgnnfoprfeyb7hcfu"
+              "apiKeyExpirationDate": "2023-04-30T23:45:59.105Z",
+              "description": "API key"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authpoemable6fe86c51"
+              }
+            }
+          ]
         }
       }
     }
@@ -27,10 +42,20 @@
     }
   },
   "auth": {
-    "poemabledbbee113": {
+    "poemable6fe86c51": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "poemable6fe86c51PostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],

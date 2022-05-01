@@ -13,15 +13,40 @@
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-poemable-dev-25954-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
+      "auth": {
+        "poemable6fe86c51": {}
+      },
       "function": {
         "poemable6fe86c51PostConfirmation": {
-          "GROUP": "Admin",
           "deploymentBucketName": "amplify-poemable-dev-25954-deployment",
           "s3Key": "amplify-builds/poemable6fe86c51PostConfirmation-456a4647476c6a4f6773-build.zip"
         }
-      },
+      }
+    }
+  },
+  "newdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-poemable-newdev-234339-authRole",
+      "UnauthRoleArn": "arn:aws:iam::443726555577:role/amplify-poemable-newdev-234339-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::443726555577:role/amplify-poemable-newdev-234339-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-poemable-newdev-234339-deployment",
+      "UnauthRoleName": "amplify-poemable-newdev-234339-unauthRole",
+      "StackName": "amplify-poemable-newdev-234339",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:443726555577:stack/amplify-poemable-newdev-234339/5e8a58f0-c8df-11ec-af83-0a7b17eca2b2",
+      "AmplifyAppId": "d6zb57w1ymrb9",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-poemable-newdev-234339-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
       "auth": {
-        "poemabledbbee113": {}
+        "poemable6fe86c51": {}
+      },
+      "function": {
+        "poemable6fe86c51PostConfirmation": {
+          "GROUP": "poemer",
+          "deploymentBucketName": "amplify-poemable-newdev-234339-deployment",
+          "s3Key": "amplify-builds/poemable6fe86c51PostConfirmation-456a4647476c6a4f6773-build.zip"
+        }
       }
     }
   }
