@@ -11,6 +11,7 @@ import leftArrow from './leftArrow.svg';
 import Button from './button';
 import { currentUserContext } from './context';
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function LandingPage() {
     const [poemList, setPoemList] = useState([])
@@ -85,6 +86,16 @@ function LandingPage() {
                 style={{ position: "absolute", bottom: "10px", left: "calc(50vw - 120px)" }}
             >POEM IT NOW!</Button>
         </Link>
+        <Swiper className={`${styles.landingPage}`} style={{ height: "600px" }} slidesPerView={2} centeredSlides={true} scrollbar={{ draggable: true }} autoplay={{ delay: 3000 }}>
+        {
+                poemList === undefined ? <p>nothing...</p> : 
+                        poemList.map((poem, index) => (
+                            <SwiperSlide>
+                                <PoemCard poem={poem} key={index} />
+                            </SwiperSlide>
+                        ))
+            }
+        </Swiper>
         </div>
     )
 }
