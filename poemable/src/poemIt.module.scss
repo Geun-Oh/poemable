@@ -33,6 +33,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
     font-family: $indexPageFontFamily;
     width: 100vw;
     height: auto;
+    position: relative;
     .section1 {
         position: sticky;
         top: 0;
@@ -133,8 +134,8 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         justify-content: center;
         align-items: center;
         text-align: center;
-        z-index: 5;
         position: relative;
+        z-index: 6;
         p {
             font-size: 30px;
         }
