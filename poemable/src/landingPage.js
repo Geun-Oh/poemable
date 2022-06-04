@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import React, { useState, useEffect, useCallback, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { listPoems } from './graphql/queries';
 import { onCreatePoem } from './graphql/subscriptions';
@@ -11,12 +11,13 @@ import leftArrow from './leftArrow.svg';
 import Button from './button';
 import { currentUserContext } from './context';
 import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 function LandingPage() {
     const [poemList, setPoemList] = useState([])
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(-1)
     const { currentUser, setCurrentUserHandler } = useContext(currentUserContext)
+    const leftRef = useRef();
+    const rightRef = useRef();
     const fetchPoem = useCallback( async () => {
         try {
             const poemData = await API.graphql({
@@ -58,6 +59,13 @@ function LandingPage() {
     //     setCurrentIndex(prev => prev + 1)
     //     console.log(currentIndex)
     // }
+    
+    if(currentIndex === 0) {
+        leftRef.current.style = "display: none;"
+    }
+    if(currentIndex === -(poemList.length - 1)) {
+        rightRef.current.style = "display: none;"
+    }
 
     return (
         <div style={{ overflow: "hidden" }}>
@@ -75,27 +83,17 @@ function LandingPage() {
                         ))
             }
         </StyledCard>
-        <div className={`${styles.rightScreen}`}>
+        <div className={`${styles.rightScreen}`} ref={rightRef}>
             <img src={rightArrow} alt="rightArrow" onClick={() => setCurrentIndex((prev => prev - 1))} />
         </div>
-        <div className={`${styles.leftScreen}`}>
+        <div className={`${styles.leftScreen}`} ref={leftRef}>
             <img src={leftArrow} alt="leftArrow" onClick={() => setCurrentIndex((prev => prev + 1))} />
         </div>
         <Link to="/writedown">
             <Button 
                 style={{ position: "absolute", bottom: "10px", left: "calc(50vw - 120px)" }}
-            >POEM IT NOW!</Button>
+            >POEM IT NOW! {currentIndex}</Button>
         </Link>
-        <Swiper className={`${styles.landingPage}`} style={{ height: "600px" }} slidesPerView={2} centeredSlides={true} scrollbar={{ draggable: true }} autoplay={{ delay: 3000 }}>
-        {
-                poemList === undefined ? <p>nothing...</p> : 
-                        poemList.map((poem, index) => (
-                            <SwiperSlide>
-                                <PoemCard poem={poem} key={index} />
-                            </SwiperSlide>
-                        ))
-            }
-        </Swiper>
         </div>
     )
 }
