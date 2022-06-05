@@ -62,8 +62,10 @@ function LandingPage() {
     
     if(currentIndex === 0) {
         leftRef.current.style = "display: none;"
-    }
-    if(currentIndex === -(poemList.length - 1)) {
+    } else if(currentIndex < 0 && currentIndex > -(poemList.length - 1)) {
+        leftRef.current.style = "display: flex;"
+        rightRef.current.style = "display: flex;"
+    } else if(currentIndex === -(poemList.length - 1)) {
         rightRef.current.style = "display: none;"
     }
 
@@ -92,7 +94,7 @@ function LandingPage() {
         <Link to="/writedown">
             <Button 
                 style={{ position: "absolute", bottom: "10px", left: "calc(50vw - 120px)" }}
-            >POEM IT NOW! {currentIndex}</Button>
+            >POEM IT NOW!</Button>
         </Link>
         </div>
     )

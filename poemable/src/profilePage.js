@@ -16,7 +16,7 @@ function ProfilePage () {
     const fetchPoem = useCallback( async () => {
         try {
             const poemData = await API.graphql({
-                query: listPoems, filter: {author: {eq: "오형근"}}
+                query: listPoems, filter: {author: {eq: currentUser}}
             })
             setPoemList(poemData.data.listPoems.items)
         } catch (err) {
@@ -62,8 +62,7 @@ function ProfilePage () {
     return(
         <div className={`${styles.profilePage}`}>
             <ForwardUpdateModal id={updateId} ref={updateModalRef} />
-            <p>오형근 | kandy1002@naver.com</p>
-            {/* <p>{currentUser.username} | {currentUser.attributes.email}</p> */}
+            <p>{currentUser.username} | {currentUser.attributes.email}</p>
             <hr />
             {
                 poemList === undefined ? <p>nothing...</p> : 

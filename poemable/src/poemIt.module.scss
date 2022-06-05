@@ -240,7 +240,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         }
     }
     @media screen and (max-width: 768px) {
-        margin-top: 0;
+        margin-top: 90px;
         wrapper {
             width: 300px;
             height: 450px;
@@ -331,6 +331,14 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         font-family: $fontFamily;
         color: #ffffff;
     }
+    @media screen and (max-width: 768px) {
+        width: 100vw;
+        top: -95vh;
+        left: 0;
+        &:hover {
+            transform: translateY(85vh);
+        }
+    }
 }
 
 .profilePage {
@@ -360,6 +368,7 @@ $indexPageFontFamily: 'Gowun Batang', serif;
             button {
                 width: 60px;
                 height: 30px;
+                font-size: 12px;
                 border-radius: 5px;
                 border: none;
                 margin-bottom: 10px;
@@ -373,9 +382,15 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         }
     }
     @media screen and (max-width: 768px) {
+        width: 80vw;
+        margin-left: 10vw;
         p {
             font-size: 20px;
         }
+        .profilePoemList {
+            width: 80vw;
+        }
+
     }
 }
 
@@ -438,6 +453,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
     }
     @media screen and (max-width: 768px) {
         height: 100vh;
+        img {
+            transform: translateX(-25px);
+        }
     }
 }
 
@@ -462,6 +480,9 @@ $indexPageFontFamily: 'Gowun Batang', serif;
     }
     @media screen and (max-width: 768px) {
         height: 100vh;
+        img {
+            transform: translateX(25px);
+        }
     }
 }
 
@@ -480,5 +501,24 @@ $indexPageFontFamily: 'Gowun Batang', serif;
         color: $defaultColor;
         background-color: white;
         border: 1px solid $defaultColor;
+    }
+}
+
+.poemCard {
+    font-size: 16px;
+    border: none;
+    resize: none;
+    text-align: center;
+    background-color: white;
+    width: 400px;
+    height: 350px;
+    margin-top: 20px;
+    &:focus {
+        outline: none;
+    }
+    @media screen and (max-width: 768px) {
+        width: 300px;
+        height: calc(350px * 0.75);
+        font-size: 12px;
     }
 }
